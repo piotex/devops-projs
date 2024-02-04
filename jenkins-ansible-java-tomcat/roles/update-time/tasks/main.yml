@@ -1,0 +1,14 @@
+---
+- name: Get date and time from WorldTimeAPI
+  uri:
+    url: "http://worldtimeapi.org/api/timezone/Europe/Warsaw"
+    return_content: yes
+  register: world_time
+  changed_when: false
+
+- name: Print world_time
+  debug:
+    var: world_time.json.datetime
+
+- name: Set actual date and time
+  command: "date -s '{{ world_time.json.datetime }}'"

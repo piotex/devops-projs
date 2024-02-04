@@ -1,0 +1,21 @@
+---
+- name: Configure firewall for Jenkins
+  firewalld:
+    state: enabled
+    permanent: yes
+    service: jenkins
+
+- name: Add Jenkins port to firewall
+  firewalld:
+    state: enabled
+    permanent: yes
+    port: "8080/tcp"
+
+- name: Reload firewall configuration
+  command: firewall-cmd --reload
+
+- name: Add HTTP service to firewall
+  firewalld:
+    state: enabled
+    permanent: yes
+    service: http

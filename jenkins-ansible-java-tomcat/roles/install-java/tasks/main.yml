@@ -1,0 +1,8 @@
+---
+- name: Install required dependencies
+  yum:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - fontconfig
+    - java-17-openjdk
