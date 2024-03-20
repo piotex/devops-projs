@@ -1,10 +1,11 @@
 ---
-- name: Open port 8080/tcp
+- name: Open port 8080/tcp (permanent)
   firewalld:
     port: 8080/tcp
     permanent: yes
     state: present
 
-- name: Reload firewalld
-  firewalld_service:
+- name: Reload firewalld service
+  service:
+    name: firewalld
     state: reloaded
