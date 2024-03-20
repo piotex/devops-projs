@@ -18,7 +18,14 @@
   lineinfile:
     path: "/usr/lib/systemd/system/jenkins.service"
     regexp: ".*-Djava.awt.headless=true.*"
-    line: 'JENKINS_JAVA_OPTIONS="-Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Djenkins.install.runSetupWizard=false -Djava.io.tmpdir=/var/cache/jenkins/tmp/ -Dorg.apache.commons.jelly.tags.fmt.timeZone=America/New_York -Duser.timezone=America/New_York"'
+    line: | 
+      'JENKINS_JAVA_OPTIONS="
+      -Djava.awt.headless=true 
+      -Djava.net.preferIPv4Stack=true 
+      -Djenkins.install.runSetupWizard=false 
+      -Djava.io.tmpdir=/var/cache/jenkins/tmp/ 
+      -Dorg.apache.commons.jelly.tags.fmt.timeZone=America/New_York 
+      -Duser.timezone=America/New_York"'
     state: present
 
 - name: Update JENKINS_ARGS
@@ -27,19 +34,6 @@
     regexp: ".*JENKINS_ARGS=.*"
     line: 'JENKINS_ARGS="--pluginroot=/var/cache/jenkins/plugins"'
     state: present
-
-# - name: Start Jenkins service
-#   systemd:
-#     name: jenkins
-#     state: started
-
-# - name: Check Jenkins service status
-#   shell: "systemctl status jenkins.service | grep Active:"
-#   register: jenkins_status_output
-
-# - name: Display Jenkins service status
-#   debug:
-#     var: jenkins_status_output.stdout_lines
 
 - name: download jenkins-plugin-manager
   get_url:
@@ -56,10 +50,6 @@
     dest: "/var/lib/jenkins/jenkins.yaml"
     src: "../files/jenkins.yaml"
 
-# - name: Copy the init files
-#   copy:
-#     dest: "/var/lib/jenkins/init.groovy.d/"
-#     src: "init.groovy.d/"
 
 - name: run the jenkins-plugin-manager
   command: java -jar /root/jenkins-plugin-manager.jar --jenkins-version 2.426.3 --plugin-file $HOME/plugins.yaml --plugin-download-directory /var/lib/jenkins/plugins

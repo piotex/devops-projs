@@ -10,12 +10,5 @@
     - '/var/cache/jenkins/tmp'
     - '/var/cache/jenkins/heapdumps'
     - '/var/lib/jenkins/plugins'
+    - "/var/lib/jenkins/jobs/test_init_proj"
 
-
-- name: Create directories for Jenkins
-  file:
-    path: "/var/lib/jenkins/jobs/test_init_proj"
-    state: directory
-    owner: jenkins
-    group: jenkins
-    recurse: yes
