@@ -1,0 +1,6 @@
+---
+- name: Open port 8080/tcp
+  firewalld:
+    port: 8080/tcp
+    permanent: yes
+    state: present
