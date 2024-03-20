@@ -49,12 +49,12 @@
 - name: Copy the plugins.yaml file
   copy:
     dest: "$HOME/plugins.yaml"
-    src: "../templates/plugins.yaml"
+    src: "../files/plugins.yaml"
 
 - name: Copy the jenkins.yaml file
   copy:
     dest: "/var/lib/jenkins/jenkins.yaml"
-    src: "../templates/jenkins.yaml"
+    src: "../files/jenkins.yaml"
 
 # - name: Copy the init files
 #   copy:
