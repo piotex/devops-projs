@@ -1,0 +1,13 @@
+---
+- name: Start Jenkins service
+  systemd:
+    name: jenkins
+    state: started
+
+- name: Check Jenkins service status
+  shell: "systemctl status jenkins.service | grep Active:"
+  register: jenkins_status_output
+
+- name: Display Jenkins service status
+  debug:
+    var: jenkins_status_output.stdout_lines

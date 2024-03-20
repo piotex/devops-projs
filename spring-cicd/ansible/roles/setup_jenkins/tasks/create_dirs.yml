@@ -12,3 +12,10 @@
     - '/var/lib/jenkins/plugins'
     - "/var/lib/jenkins/jobs/test_init_proj"
 
+- name: update JENKINS_HOME ownership
+  file:
+    path: /var/lib/jenkins
+    owner: jenkins
+    group: jenkins
+    state: directory
+    recurse: yes
