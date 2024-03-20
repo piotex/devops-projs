@@ -3,7 +3,6 @@
   firewalld:
     port: 8080/tcp
     permanent: yes
-    state: present
 
 - name: Reload firewalld service
   service:
