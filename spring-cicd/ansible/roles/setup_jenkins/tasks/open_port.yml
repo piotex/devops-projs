@@ -4,3 +4,5 @@
     port: 8080/tcp
     permanent: yes
     state: present
+  firewalld_service:
+    state: reloaded
