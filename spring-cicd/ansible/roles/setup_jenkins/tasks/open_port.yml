@@ -1,8 +1,11 @@
 ---
 - name: Open port 8080/tcp (permanent)
   firewalld:
+    zone: public
     port: 8080/tcp
-    permanent: yes
+    permanent: true
+    state: enabled
+  become: yes
 
 - name: Reload firewalld service
   service:
