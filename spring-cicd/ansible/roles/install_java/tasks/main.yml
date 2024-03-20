@@ -1,0 +1,5 @@
+---
+- name: Install required dependencies
+  yum:
+    name: "{{ java_version }}"
+    state: present

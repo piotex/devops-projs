@@ -1,0 +1,6 @@
+---
+- name: Create jenkins user
+  user:
+    name: jenkins
+    password: "{{ 'jenkins' | password_hash('sha512') }}"
+    state: present

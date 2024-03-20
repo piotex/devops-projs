@@ -1,0 +1,42 @@
+---
+- include: import_gpg_key.yml
+- include: create_user.yml
+- include: create_dirs.yml
+- include: install_jenkins.yml
+- include: copy_jobs.yml
+
+
+
+
+
+
+
+
+
+
+# - name: restart jenkins service
+#   systemd:
+#     name: jenkins
+#     state: restarted
+
+
+- name: Start Jenkins service
+  systemd:
+    name: jenkins
+    state: started
+
+- name: Check Jenkins service status
+  shell: "systemctl status jenkins.service | grep Active:"
+  register: jenkins_status_output
+
+- name: Display Jenkins service status
+  debug:
+    var: jenkins_status_output.stdout_lines
+
+- name: Cat initialAdminPassword
+  command: cat /var/lib/jenkins/secrets/initialAdminPassword
+  register: initial_admin_password
+
+- name: Print initialAdminPassword
+  debug:
+    var: initial_admin_password.stdout_lines

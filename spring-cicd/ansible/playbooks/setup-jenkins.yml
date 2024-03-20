@@ -1,0 +1,11 @@
+---
+- name: Install and configure Jenkins on CentOS 8
+  hosts: jenkins
+  remote_user: jenkins_agent
+  become: yes
+  gather_facts: no
+  roles:
+    - role: ../roles/install_java
+    - role: ../roles/setup_jenkins
+
+

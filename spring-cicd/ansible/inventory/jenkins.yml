@@ -1,0 +1,9 @@
+[jenkins]
+192.168.56.57
+
+[all:children]
+jenkins
+
+[all:vars]
+jenkins_version="2.449"
+java_version="java-17-openjdk"

@@ -1,0 +1,5 @@
+---    
+- name: copy job
+  copy:
+    dest: "/var/lib/jenkins/jobs/test_init_proj/config.xml"
+    src: "../files/job1.xml"
