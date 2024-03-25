@@ -1,4 +1,5 @@
 # Setup master and slave machines
+**Useful links:**
 [Download Centos 9 x86_64](https://www.centos.org/download/)<br>
 [How to CentOS and Static IP](https://www.youtube.com/watch?v=wwnQy4XVJ6I&list=WL&index=150)<br>
 
