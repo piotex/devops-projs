@@ -5,6 +5,7 @@
 - include: install_jenkins.yml
 - include: install_jenkins_plugin_manager.yml
 - include: copy_jobs.yml
+- include: copy_credentials.yml
 - include: open_port.yml
 - include: start_jenkins.yml
 - include: show_init_password.yml

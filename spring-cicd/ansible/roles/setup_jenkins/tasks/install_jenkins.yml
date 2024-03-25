@@ -1,4 +1,10 @@
 ---
+- name: Stop Jenkins service if possible
+  systemd:
+    name: jenkins
+    state: stopped
+  ignore_errors: true
+
 - name: Install Jenkins
   yum:
     name: jenkins

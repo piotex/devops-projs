@@ -11,6 +11,8 @@
     - '/var/cache/jenkins/heapdumps'
     - '/var/lib/jenkins/plugins'
     - "/var/lib/jenkins/jobs/test_init_proj"
+    - "/home/vagrant/"
+    - "/home/vagrant/jenkins-agent"
 
 - name: update JENKINS_HOME ownership
   file:

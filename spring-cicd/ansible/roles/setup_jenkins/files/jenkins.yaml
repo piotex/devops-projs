@@ -20,15 +20,15 @@ jenkins:
       labelString: "linux"
       launcher:
         ssh:
-          credentialsId: "vagrant"
-          host: "agent1"
+          credentialsId: "jenkins"
+          host: "192.168.56.57"
           port: 22
           sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
       mode: EXCLUSIVE
       name: "agent1"
       remoteFS: "/home/vagrant/jenkins-agent"
       retentionStrategy: "always"
-  numExecutors: 0
+  numExecutors: 1
   primaryView:
     all:
       name: "all"
