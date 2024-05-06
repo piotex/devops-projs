@@ -27,7 +27,9 @@ ssh-keygen -t rsa -b 2048 -C "jenkins_agent@192.168.56.57"
     /home/peter/.ssh/id_rsa-jenkins_agent@192.168.56.57
 ssh-copy-id -i /home/peter/.ssh/id_rsa-jenkins_agent@192.168.56.57 jenkins_agent@192.168.56.57
 ```
-
+```
+ssh -i /home/peter/.ssh/id_rsa-jenkins_agent@192.168.56.57 jenkins_agent@192.168.56.57
+```
 **Set actual date and time:**
 ```
 sudo date -s $(curl -s "http://worldtimeapi.org/api/timezone/Europe/Warsaw" | grep -oE '"datetime":"[^"]+"' | cut -d'"' -f4)
